@@ -1,0 +1,29 @@
+body {
+	background-image: url("/resources/Backgrounds/Background - Noise 2.png");
+	font-size: 1rem;
+}
+
+body > .container-fluid {
+	max-width: 1280px;
+	min-width: 360px;
+}
+
+header {
+	background-color: white;
+}
+
+.card {
+	margin-top: .5rem;
+	margin-bottom: .5rem;
+
+}
+.btn-outline-primary {
+	background-color: white !important;
+}
+
+.toggle.ios, .toggle-on.ios, .toggle-off.ios {
+	border-radius: 20px; 
+}
+.toggle.ios .toggle-handle { 
+	border-radius: 20px; 
+}

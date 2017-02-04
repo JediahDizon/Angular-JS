@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="homepageApp">
+    <head>
+        <title>AngularJS Weather Forecast SPA</title>
+		<link rel="icon" type="image/png"  href="http://orig01.deviantart.net/0849/f/2013/189/7/f/simple_rainbow_google_logo__install_guide___by_thepatrollpl-d6ci0lz.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+		
+		<!-- STYLESHEET -->
+		<link rel="stylesheet" href="/resources/css/style.css" />
+		
+		<!-- BOOTSTRAP -->
+		<link rel="stylesheet" href="/resources/Font Awesome/css/font-awesome.min.css">
+		<link href="/resources/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/resources/Bootstrap/css/mdb.min.css" rel="stylesheet">
+		
+		<!-- BOOTSTRAP LADDA -->
+		<link rel="stylesheet" href="/resources/Bootstrap Ladda/dist/ladda-themeless.min.css">
+		<script src="/resources/Bootstrap Ladda/dist/spin.min.js"></script>
+		<script src="/resources/Bootstrap Ladda/dist/ladda.min.js"></script>
+		
+		<!-- BOOTSTRAP TOGGLE -->
+		<link rel="stylesheet" href="/resources/Bootstrap Toggle/css/bootstrap-toggle.min.css">
+
+		<!-- ANGULAR JS -->
+        <script src="//code.angularjs.org/1.3.0-rc.2/angular.min.js"></script>
+        <script src="//code.angularjs.org/1.3.0-rc.2/angular-route.min.js"></script>
+        <script src="//code.angularjs.org/1.3.0-rc.2/angular-resource.min.js"></script>
+        <script src="/app.js"></script>
+		
+		<!-- ROUTES -->
+		<script src="/routes/routeProvider.js"></script>
+		
+		<!-- SERVICES -->
+		<script src="/services/openWeather.js"></script>
+		
+		<!-- CONTROLLERS -->
+		<script src="/controllers/forecastController.js"></script>
+		
+		<!-- DIRECTIVES -->
+		<script src="/directives/directive.js"></script>
+		
+    </head>
+    <body onload="onLoad()">
+        <div class="container-fluid" style="opacity: 0">
+			<div ng-view></div>
+		</div>
+		
+		<!-- JQUERY -->
+		<script type="text/javascript" src="/resources/Bootstrap/js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="/resources/Bootstrap/js/tether.min.js"></script>
+		<script type="text/javascript" src="/resources/Bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/resources/Bootstrap/js/mdb.min.js"></script>
+		
+		<!-- BOOTSTRAP TOGGLE -->
+		<script src="/resources/Bootstrap Toggle/js/bootstrap-toggle.min.js"></script>
+		
+		<!-- SCRIPT -->
+		<script type="text/javascript" src="/resources/js/script.js"></script>
+    </body>
+</html>
