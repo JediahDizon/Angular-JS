@@ -9,7 +9,7 @@ I took a Udemy course in Angular JS alongside many other subjects. What interest
 - Bootstrap Toggle - http://www.bootstraptoggle.com
 
 ### To Do List
-- Use an image search API to change the image whenever the city changes for the weather information
+- Use an image search API to change the city image whenever the user specifies a different city for the weather information
 - Use RSS feeds to parse and display RSS information on specified websites
 - Make it look nicer than it is now
 
