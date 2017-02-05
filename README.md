@@ -13,7 +13,7 @@ I took a Udemy course in Angular JS alongside many other subjects. What interest
 - Use RSS feeds to parse and display RSS information on specified websites
 - Make a pull request to the Bootstrap Toggle so that the toggle switch's button center button's color is also modifiable and not just the On/Off button.
 
--- Bootstrap Toggle has button elements on the left, center, and right. The center buttons color is limited to just Bootstrap's "Default" button color. Since Bootstrap MD has it's "Default" color set to green, it just looks horrendous.
+Bootstrap Toggle has button elements on the left, center, and right. The center buttons color is limited to just Bootstrap's "Default" button color. Since Bootstrap MD has it's "Default" color set to green, it just looks horrendous.
 
  ### Current Screenshot
 
