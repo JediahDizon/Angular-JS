@@ -7,3 +7,10 @@ I took a Udemy course in Angular JS alongside many other subjects. What interest
 - Bootstrap with Material Design Framework - https://mdbootstrap.com
 - Bootstrap Ladda - https://github.com/msurguy/ladda-bootstrap
 - Bootstrap Toggle - http://www.bootstraptoggle.com
+
+### To Do List
+- Use an image search API to change the image whenever the city changes for the weather information
+- Use RSS feeds to parse and display RSS information on specified websites
+- Make it look nicer than it is now
+
+### Current Screenshot
