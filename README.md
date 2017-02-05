@@ -15,5 +15,4 @@ I took a Udemy course in Angular JS alongside many other subjects. What interest
 
 ### Current Screenshot
 
-Inline-style: 
 ![alt text](https://github.com/JediahDizon/Angular-JS/blob/master/doc/Screenshots/Capture%20-%201.PNG "Screen Shot - 1")
