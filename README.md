@@ -11,8 +11,9 @@ I took a Udemy course in Angular JS alongside many other subjects. What interest
 ### To Do List
 - Use an image search API to change the city image whenever the user specifies a different city for the weather information
 - Use RSS feeds to parse and display RSS information on specified websites
-- Make it look nicer than it is now
+- Make a pull request to the Bootstrap Toggle so that the toggle switch's button center button's color is also modifiable and not just the On/Off button.
+-- The center buttons color is limited to just Bootstrap's "Default" button color. Since Bootstrap MD has it's "Default" color set to green, it just looks horrendous.
 
-### Current Screenshot
+ ### Current Screenshot
 
 ![alt text](https://github.com/JediahDizon/Angular-JS/blob/master/doc/Screenshots/Capture%20-%201.PNG "Screen Shot - 1")
