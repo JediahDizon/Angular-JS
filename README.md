@@ -18,9 +18,11 @@ Bootstrap Toggle has button elements on the left, center, and right. The center 
 ### Current Screenshot
 - Weather Functionality presentation has been improved
 - RSS Feed functionality has been implemented
+
 ![Screenshot](https://github.com/JediahDizon/Angular-JS/blob/master/doc/Screenshots/Capture%20-%202.PNG "Screen Shot - 2")
 
 ### Old Screenshots
 - Weather display functionality has been implemented
 - RSS Feeds are yet to be implemented
+
 ![Screenshot](https://github.com/JediahDizon/Angular-JS/blob/master/doc/Screenshots/Capture%20-%201.PNG "Screen Shot - 1")
