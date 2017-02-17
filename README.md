@@ -16,5 +16,6 @@ I took a Udemy course in Angular JS alongside many other subjects. What interest
 Bootstrap Toggle has button elements on the left, center, and right. The center buttons color is limited to just Bootstrap's "Default" button color. Since Bootstrap MD has it's "Default" color set to green, it just looks horrendous.
 
 ### Current Screenshot
-
+![Screenshot](https://github.com/JediahDizon/Angular-JS/blob/master/doc/Screenshots/Capture%20-%201.PNG "Screen Shot - 2")
+### Old Screenshots
 ![Screenshot](https://github.com/JediahDizon/Angular-JS/blob/master/doc/Screenshots/Capture%20-%201.PNG "Screen Shot - 1")
