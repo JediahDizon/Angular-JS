@@ -13,3 +13,11 @@ homepageApp.directive("weatherForecast", function() {
 		replace: true
 	};
 });
+
+homepageApp.directive("rssFeed", function() {
+	return {
+		templateUrl: "/directives/templates/rssFeedCard.html",
+		restrict: "AECM",
+		replace: true
+	};
+});
