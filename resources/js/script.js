@@ -48,7 +48,9 @@ function startBootstrapToggle() {
 }
 
 function onLoad() {
-	$(".container-fluid").css("-webkit-transition", "opacity .5s");
-	$(".container-fluid").css("opacity", "1");	
-	setTimeout(function() { $(".container-fluid").removeAttr("style") }, 500)
+	setTimeout(function() {
+		$(".container-fluid").css("-webkit-transition", "opacity .5s");
+		$(".container-fluid").css("opacity", "1");	
+		setTimeout(function() { $(".container-fluid").removeAttr("style") }, 500)
+	}, 500);
 }

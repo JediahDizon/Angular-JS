@@ -1,6 +1,11 @@
-<div class="card">
-	<img class="card-img-top" src="feed.">	
+<div class="card" ng-repeat="rssFeed in rssFeeds.items">
 	<div class="card-block">
-		<h3>{{ rssFeed.toString() }}</h3>
+		<h3>
+			{{ rssFeed.title }}
+			<br />
+			<small class="text-lighten-5">{{ rssFeed.author }}</small>
+		</h3>
+		<hr />
+		<p ng-bind-html="rssFeed.description"></p>
 	</div>
 </div>

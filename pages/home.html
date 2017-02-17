@@ -4,16 +4,21 @@
 		<div class="weather-forecast"></div>
 	</div>
 	
-	<div class="col-12 col-sm-8">
+	<div class="col-12 col-sm-8" ng-controller="rssFeedController">
 		<div class="card">
 			<div class="card-block">
 				<h1>Good Day!</h1>
 				<h4>
 					<small>Here are your news for today.</small>
 				</h4>
-				
-				<div class="rss-feeds" ng-controller="rssController"></div>
+				<div>
+					<div class="input-group">
+						<input ng-model="rssFeedURL" type="text" class="form-control" placeholder="Enter an RSS link..." />
+					</div>
+				</div>
 			</div>
 		</div>
+		
+		<div ng-include="'/directives/templates/rssFeedCard.html'"></div>
 	</div>
 </div>

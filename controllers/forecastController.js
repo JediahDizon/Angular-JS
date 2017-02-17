@@ -25,28 +25,29 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "op
 		var checkboxElement = $("[type='checkbox'")[0];
 		if (checkboxElement)
 			$scope.tempUnit = checkboxElement.checked ? "Celcius" : "Farenheit";
-		$timeout(tempUnitChange, 100)
+		$timeout(tempUnitChange, 100);
 	}, 100);
 	
 	$scope.submit = function() {
-	$http({
-		method: "GET",
-		url: "http://api.openweathermap.org/data/2.5/forecast/daily",
-		params: {
-				appid: openWeather.appId,
-				q: openWeather.city || "Calgary,AB",
-				cnt: openWeather.count || 1
-		}
-	}).then(function success(response) {
-		$scope.weatherResult = response.data;
-		setTimeout(function() { Ladda.stopAll(); }, 500);
-	});
-	};
+		$http({
+			method: "GET",
+			url: "http://api.openweathermap.org/data/2.5/forecast/daily",
+			params: {
+					appid: openWeather.appId,
+					q: openWeather.city || "Calgary,AB",
+					cnt: openWeather.count || 1
+			}
+		}).then(function success(response) {
+			$scope.weatherResult = response.data;
+			setTimeout(function() { Ladda.stopAll(); }, 500);
+		});
+		};
+		
 	$scope.submit();
 	$scope.convertToCelcius = function(degKelvin) {
 		return Math.round(degKelvin - 273.15);
-	}
+	};
 	$scope.convertToFarenheit = function(degKelvin) {
 		return Math.round((degKelvin * (9/5)) - 459.67);
-	}
+	};
 }]);
