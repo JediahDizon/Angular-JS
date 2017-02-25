@@ -37,11 +37,13 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "op
 					q: openWeather.city || "Calgary,AB",
 					cnt: openWeather.count || 1
 			}
-		}).then(function success(response) {
-			$scope.weatherResult = response.data;
-			setTimeout(function() { Ladda.stopAll(); }, 500);
+			}).then(function success(response) {
+				$scope.weatherResult = response.data;
+				setTimeout(function() { Ladda.stopAll(); }, 500);
+			}, function failur(response) {
+				alert("This error was most likely caused by the browser not allowing http requests over https. Please enable it.");
 		});
-		};
+	};
 		
 	$scope.submit();
 	$scope.convertToCelcius = function(degKelvin) {
