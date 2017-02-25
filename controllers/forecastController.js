@@ -40,8 +40,9 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "op
 			}).then(function success(response) {
 				$scope.weatherResult = response.data;
 				setTimeout(function() { Ladda.stopAll(); }, 500);
-			}
-		);
+			}, function failure(response) {
+				$scope.weatherResult.message = "There was an error: " + response + ".\nThis is most likely a browser security functionality that blocks HTTP requests over HTTPS. To see the weather data, please enable it.";
+		});
 	};
 		
 	$scope.submit();
