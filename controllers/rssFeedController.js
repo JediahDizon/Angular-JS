@@ -4,7 +4,7 @@ homepageApp.controller("rssFeedController", ["$scope", "$sce", "rssFeed", functi
 		rssFeed.getFeeds($scope.rssFeedURL).$promise.then(function(responseData) {
 			$scope.rssFeeds = responseData;
 			angular.forEach($scope.rssFeeds.items, function(rssFeed) {
-				rssFeed.description = ($sce.trustAsHtml(decodeURI(rssFeed.description)));
+				rssFeed.description = $sce.trustAsHtml(decodeURI(rssFeed.description));
 			});
 		},
 		function(responseError) {
