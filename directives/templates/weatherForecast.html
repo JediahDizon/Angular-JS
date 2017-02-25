@@ -27,7 +27,7 @@
 						<i class="fa fa-tint"></i>
 					</td>
 					<td>
-						{{ convertToFarenheit(weatherResult.list[0].humidity) }}%
+						{{ convertToFarenheit(weatherResult.list[0].humidity) || " " }}%
 					</td>
 				</tr>
 				<tr>
@@ -35,7 +35,7 @@
 						<i class="fa fa-tachometer"></i>
 					</td>
 					<td>
-						{{ convertToFarenheit(weatherResult.list[0].pressure) }} hPa
+						{{ convertToFarenheit(weatherResult.list[0].pressure) || " " }} hPa
 					</td>
 				</tr>
 				
