@@ -40,9 +40,8 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "op
 			}).then(function success(response) {
 				$scope.weatherResult = response.data;
 				setTimeout(function() { Ladda.stopAll(); }, 500);
-			}, function failur(response) {
-				alert("This error was most likely caused by the browser not allowing http requests over https. Please enable it.");
-		});
+			}
+		);
 	};
 		
 	$scope.submit();
