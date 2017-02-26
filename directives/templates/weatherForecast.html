@@ -5,7 +5,7 @@
 			<h1 class="card-title text-white">
 				<strong class="card-title text-white">
 					{{ tempUnit === "Celcius" ? convertToCelcius(weatherResult.list[0].temp.day) : convertToFarenheit(weatherResult.list[0].temp.day) }}
-					{{ angular.isUndefined(weatherResult.list[].temp.day) ? " º" + tempUnit.substring(0, 1) : "" }}
+					{{ angular.isUndefined(weatherResult.list[0].temp.day) ? " º" + tempUnit.substring(0, 1) : "" }}
 				</strong>
 			</h1>
 		</div>
