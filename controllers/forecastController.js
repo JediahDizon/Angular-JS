@@ -9,6 +9,7 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "op
 	$scope.$watch("tempUnit", function() {
 		openWeather.tempUnit = $scope.tempUnit;
 	});
+	
 	/*
 	 * This timeout function serves the purpose of changing the unit of the temperature
 	 * displayed in the city's weather information for UX. The reason why we couldn't just
@@ -27,33 +28,27 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "op
 			$scope.tempUnit = checkboxElement.checked ? "Celcius" : "Farenheit";
 		$timeout(tempUnitChange, 100);
 	}, 100);
-	
-	$scope.submit = function() {
-		$http({
-			method: "GET",
-			url: "http://api.openweathermap.org/data/2.5/forecast/daily",
-			params: {
-					appid: openWeather.appId,
-					q: openWeather.city || "Calgary,AB",
-					cnt: openWeather.count || 1
-			}
-			}).then(function success(response) {
-				$scope.weatherResult = response.data;
-				setTimeout(function() { Ladda.stopAll(); }, 500);
-			}, function failure(response) {
-				if (response.status == 0) {
-					$scope.weatherResult.error = "Something went wrong. This is most likely a browser security functionality that blocks HTTP requests over HTTPS. To see the weather data, please enable it."
-				} else {
-					$scope.weatherResult.error = "Something went wrong: " + response.data;	
-				}
-				setTimeout(function() { Ladda.stopAll(); }, 500);
-		});
-	};
+			
 	$scope.convertToCelcius = function(degKelvin) {
 		return Math.round(degKelvin - 273.15);
 	};
 	$scope.convertToFarenheit = function(degKelvin) {
 		return Math.round((degKelvin * (9/5)) - 459.67);
+	};
+	
+	$scope.weatherResult = {};
+	$scope.submit = function() {
+		openWeather.submit().then(function success(response) {
+			$scope.weatherResult = response.data;
+			setTimeout(function() { Ladda.stopAll(); }, 500);
+		}, function failure(response) {
+			if (response.status === 0) {
+				$scope.weatherResult.error = "Something went wrong. This is most likely a browser security functionality that blocks HTTP requests over HTTPS. To see the weather data, please enable it."
+			} else {
+				$scope.weatherResult.error = "Something went wrong: " + response.data;	
+			}
+			setTimeout(function() { Ladda.stopAll(); }, 500);
+		});
 	};
 	$scope.submit();
 }]);
