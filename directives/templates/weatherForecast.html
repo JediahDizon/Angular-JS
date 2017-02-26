@@ -4,7 +4,7 @@
 		<div class="card-img-overlay">
 			<h1 class="card-title text-white">
 				<strong class="card-title text-white">
-					{{ tempUnit === "Celcius" ? convertToCelcius(weatherResult.list[0].temp.day) : convertToFarenheit(weatherResult.list[0].temp.day) }}
+					{{ tempUnit === "Celcius" ? convertToCelcius(weatherResult.list[0].temp.day) || " " : convertToFarenheit(weatherResult.list[0].temp.day) || " " }}
 					{{ angular.isUndefined(weatherResult.list[0].temp.day) ? " º" + tempUnit.substring(0, 1) : "" }}
 				</strong>
 			</h1>
@@ -20,7 +20,7 @@
 						<i class="fa fa-tint"></i>
 					</td>
 					<td>
-						{{ convertToFarenheit(weatherResult.list[0].humidity) + "%" || " " }}
+						{{ convertToFarenheit(weatherResult.list[0].humidity) || 0 }}%
 					</td>
 				</tr>
 				<tr>
@@ -28,7 +28,7 @@
 						<i class="fa fa-tachometer"></i>
 					</td>
 					<td>
-						{{ convertToFarenheit(weatherResult.list[0].pressure) + " hPa" || " " }}
+						{{ convertToFarenheit(weatherResult.list[0].pressure) || "0" }} hPa
 					</td>
 				</tr>
 				<tr>
