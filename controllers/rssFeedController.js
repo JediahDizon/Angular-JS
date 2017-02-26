@@ -4,8 +4,8 @@ homepageApp.controller("rssFeedController", ["$scope", "$sce", "$cookies", "rssF
 	$scope.rssFeedURL = $cookies.get("rssUrl");
 	$scope.$watch("rssFeedURL", function() {
 		$cookies.put("rssUrl", $scope.rssFeedURL);
-		rssFeed.getFeeds($scope.rssFeedURL).$promise.then(function(responseData) {
-			$scope.rssFeeds = responseData;
+		rssFeed.getFeeds($scope.rssFeedURL).then(function(responseData) {
+			$scope.rssFeeds = responseData.data;
 			angular.forEach($scope.rssFeeds.items, function(rssFeed) {
 				rssFeed.description = $sce.trustAsHtml(decodeURI(rssFeed.description));
 			});

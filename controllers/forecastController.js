@@ -42,9 +42,9 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "op
 				setTimeout(function() { Ladda.stopAll(); }, 500);
 			}, function failure(response) {
 				if (response.status == 0) {
-					$scope.weatherResult = "Something went wrong. This is most likely a browser security functionality that blocks HTTP requests over HTTPS. To see the weather data, please enable it."
+					$scope.weatherResult.error = "Something went wrong. This is most likely a browser security functionality that blocks HTTP requests over HTTPS. To see the weather data, please enable it."
 				} else {
-					$scope.weatherResult = "Something went wrong: " + response.data;	
+					$scope.weatherResult.error = "Something went wrong: " + response.data;	
 				}
 				setTimeout(function() { Ladda.stopAll(); }, 500);
 		});

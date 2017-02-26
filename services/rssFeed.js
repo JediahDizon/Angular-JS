@@ -1,10 +1,11 @@
-homepageApp.service('rssFeed',['$resource', function($resource) {
+homepageApp.service('rssFeed',['$http', "$sce", function($http, $sce) {
 	this.getFeeds = function(rssURL) {
-		var toReturn = $resource("https://api.rss2json.com/v1/api.json", {
-			callback: "JSON_CALLBACK"
-		}, { get: {
-				method: "JSONP"
+		var baseUrl = "https://api.rss2json.com/v1/api.json?rss_url=" + rssURL;
+		
+		return $http({
+			method: "GET",
+			url: "https://api.rss2json.com/v1/api.json",
+			params: {
+					rss_url: rssURL
 		}});
-		return toReturn.get({rss_url : rssURL});
-	};
-}]);
+}}]);
