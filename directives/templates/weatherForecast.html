@@ -4,7 +4,7 @@
 		<div class="card-img-overlay">
 			<h1 class="card-title text-white">
 				<strong class="card-title text-white">
-					{{ tempUnit === "Celcius" ? convertToCelcius(weatherResult.list[0].temp.day) : convertToFarenheit(weatherResult.list[0].temp.day) }} º{{tempUnit.substring(0, 1)}}
+					{{ tempUnit === "Celcius" ? convertToCelcius(weatherResult.list[0].temp.day) : convertToFarenheit(weatherResult.list[0].temp.day) + " º" + tempUnit.substring(0, 1)}}
 				</strong>
 			</h1>
 		</div>
@@ -14,14 +14,6 @@
 		<h3>{{ weatherResult.city.name || " " }}<small>{{ weatherResult.city.country != null ? ", " + weatherResult.city.country : " " }}</small></h3>	
 		<table class="table table-bordered">
 			<tbody>
-				<tr>
-					<td class="text-center">
-						<i class="fa fa-thermometer-three-quarters"></i>
-					</td>
-					<td>
-						{{ tempUnit === "Celcius" ? convertToCelcius(weatherResult.list[0].temp.day) : convertToFarenheit(weatherResult.list[0].temp.day) }} º{{tempUnit.substring(0, 1)}}
-					</td>
-				</tr>
 				<tr>
 					<td class="text-center">
 						<i class="fa fa-tint"></i>
