@@ -1,7 +1,8 @@
 homepageApp.config(function($routeProvider) {
 	$routeProvider
 		.when('/', {
-			templateUrl: '/pages/home.html',
-			controller: 'forecastController'
-	})
+			templateUrl: '/pages/home.html'
+	}), otherwise({
+		redurectTo: '/'
+	});
 });
