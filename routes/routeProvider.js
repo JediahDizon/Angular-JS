@@ -2,7 +2,7 @@ homepageApp.config(function($routeProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: '/pages/home.html'
-	}), otherwise({
-		redurectTo: '/'
+	}).otherwise({
+		redirectTo: '/'
 	});
 });
