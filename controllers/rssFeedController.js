@@ -1,5 +1,8 @@
 homepageApp.controller("rssFeedController", ["$scope", "$sce", "rssFeed", function ($scope, $sce, rssFeed) {
-	$scope.rssFeedURL = "https://techcrunch.com/feed/";
+	if($cookies.get("rssUrl"))
+		$cookies.put("rssUrl", "https://techcrunch.com/feed/");
+	
+	$scope.rssFeedURL = $cookies.get("rssUrl");
 	$scope.$watch("rssFeedURL", function() {
 		rssFeed.getFeeds($scope.rssFeedURL).$promise.then(function(responseData) {
 			$scope.rssFeeds = responseData;
