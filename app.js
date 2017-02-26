@@ -1,1 +1,1 @@
-var homepageApp = angular.module("homepageApp", ["ngRoute", "ngResource"]);
+var homepageApp = angular.module("homepageApp", ["ngRoute", "ngResource", "ngCookies"]);
