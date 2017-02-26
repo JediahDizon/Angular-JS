@@ -42,6 +42,7 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "op
 				setTimeout(function() { Ladda.stopAll(); }, 500);
 			}, function failure(response) {
 				$scope.weatherResult = "There was an error: " + response.data + ".\nThis is most likely a browser security functionality that blocks HTTP requests over HTTPS. To see the weather data, please enable it.";
+				setTimeout(function() { Ladda.stopAll(); }, 500);
 		});
 	};
 	$scope.convertToCelcius = function(degKelvin) {
