@@ -50,5 +50,5 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "op
 	$scope.convertToFarenheit = function(degKelvin) {
 		return Math.round((degKelvin * (9/5)) - 459.67);
 	};
-	
+	$scope.submit();
 }]);
