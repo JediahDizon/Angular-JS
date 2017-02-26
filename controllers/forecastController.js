@@ -44,11 +44,11 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "op
 				$scope.weatherResult.message = "There was an error: " + response + ".\nThis is most likely a browser security functionality that blocks HTTP requests over HTTPS. To see the weather data, please enable it.";
 		});
 	};
-
 	$scope.convertToCelcius = function(degKelvin) {
 		return Math.round(degKelvin - 273.15);
 	};
 	$scope.convertToFarenheit = function(degKelvin) {
 		return Math.round((degKelvin * (9/5)) - 459.67);
 	};
+	
 }]);

@@ -11,7 +11,7 @@
 	</div>
 	
 	<div class="card-block">
-		<h3>{{ weatherResult.city.name }}<small>{{ ", " + weatherResult.city.country }}</small></h3>	
+		<h3>{{ weatherResult.city.name || " " }}<small>{{ weatherResult.city.country != null ? ", " + weatherResult.city.country : " " }}</small></h3>	
 		<table class="table table-bordered">
 			<tbody>
 				<tr>
