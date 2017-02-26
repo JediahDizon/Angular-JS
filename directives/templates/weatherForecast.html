@@ -31,9 +31,9 @@
 						{{ convertToFarenheit(weatherResult.list[0].pressure) || "0" }} hPa
 					</td>
 				</tr>
-				<tr ng-if="angular.isUndefined(weatherResult.list[0])">
+				<tr ng-if="weatherResult.error !== undefined">
 					<td colspan="2">
-						<p>{{ weatherResult }}</p>
+						<p>{{ weatherResult.error }}</p>
 					</td>
 				</tr>
 					
