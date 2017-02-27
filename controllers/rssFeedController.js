@@ -26,8 +26,7 @@ homepageApp.controller("rssFeedController", ["$scope", "$sce", "$timeout", "$coo
 									description: $sce.trustAsHtml("<p>Please check the RSS URL.</p>")
 								}]
 							};
-					}
-			}, function(responseError) {
+					}}, function(responseError) {
 				console.log("ERROR: " + responseError);
 			});
 		}, rssRequestDelay);
