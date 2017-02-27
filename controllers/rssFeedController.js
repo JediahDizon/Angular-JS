@@ -12,15 +12,24 @@ homepageApp.controller("rssFeedController", ["$scope", "$sce", "$timeout", "$coo
 		$timeout.cancel(rssRequestTimeout);
 		
 		rssRequestTimeout = $timeout(function() {
-			rssFeed.getFeeds($scope.rssFeedURL).then(function(responseData) {
-				$scope.rssFeeds = responseData.data;
-				angular.forEach($scope.rssFeeds.items, function(rssFeed) {
-					rssFeed.description = $sce.trustAsHtml(decodeURI(rssFeed.description));
-				});
-			},
-			function(responseError) {
+				rssFeed.getFeeds($scope.rssFeedURL).then(function (responseData) {
+					console.log(responseData);
+					if (responseData.data && responseData.data.status === "ok") {
+						$scope.rssFeeds = responseData.data;
+						angular.forEach($scope.rssFeeds.items, function (rssFeed) {
+							rssFeed.description = $sce.trustAsHtml(decodeURI(rssFeed.description));
+						});
+					} else if (responseData.data.status === "error") {
+						$scope.rssFeeds = {
+								items: [{
+									title: "No data",
+									description: $sce.trustAsHtml("<p>Please check the RSS URL.</p>")
+								}]
+							};
+					}
+			}, function(responseError) {
 				console.log("ERROR: " + responseError);
 			});
-		}, rssRequestDelay)
+		}, rssRequestDelay);
 	});
 }]);
