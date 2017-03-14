@@ -18,7 +18,7 @@ homepageApp.service("openWeather", ["$http", function($http) {
 			});
 		}
 	
-	function initializeMap(longitutde, latitude) {
+	this.initializeMap = function initializeMap(longitutde, latitude) {
 		var geoLocation = {lat: longitude, lng: latitude};
 		var map = new google.maps.Map(this.mapDomElement, {
 			zoom: 4,
