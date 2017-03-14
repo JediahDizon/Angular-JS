@@ -40,6 +40,8 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "op
 	$scope.submit = function() {
 		openWeather.submit().then(function success(response) {
 			$scope.weatherResult = response.data;
+			openWeather.initializeMap(response.longitude, response.latitude);
+			$scope.weatherResult.mapDomElement = openWeather.mapDomElement;
 			setTimeout(function() { Ladda.stopAll(); }, 500);
 		}, function failure(response) {
 			if (response.status === -1) {
