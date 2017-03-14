@@ -17,7 +17,7 @@ homepageApp.controller("rssFeedController", ["$scope", "$sce", "$timeout", "$coo
 					if (responseData.data && responseData.data.status === "ok") {
 						$scope.rssFeeds = responseData.data;
 						angular.forEach($scope.rssFeeds.items, function (rssFeed) {
-							rssFeed.description = $sce.trustAsHtml(decodeURI(encodeURI(rssFeed.description)));
+							rssFeed.description = decodeURI(encodeURI(rssFeed.description));
 						});
 					} else if (responseData.data.status === "error") {
 						$scope.rssFeeds = {
