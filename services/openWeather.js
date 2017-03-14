@@ -3,7 +3,6 @@ homepageApp.service("openWeather", ["$http", function($http) {
 	this.city = "Calgary, AB";
 	this.count = 1;
 	this.tempUnit = "C";
-	this.mapDomElement = createDomElement();
 	
 	this.submit = function() {
 		return $http({
@@ -13,23 +12,19 @@ homepageApp.service("openWeather", ["$http", function($http) {
 				appid: this.appId,
 				q: this.city,
 				cnt: this.count
-			}
-			});
-		}
-	
-	this.initializeMap = function initializeMap(longitude, latitude) {
-		var map = new google.maps.Map(mapDomElement, {
-			zoom: 4,
-			center: {lat: longitude, lng: latitude},
-			disableDefaultUI: false
-		});
-		console.log(map.getCenter().toString());
-		console.log(map.getZoom());
+		}});
 	}
 	
-	function createDomElement() {
-		var toReturn = document.createElement("div");
-		toReturn.setAttribute("style", "height: 500px; width: 100%");
-		return toReturn;
+	this.loadMap = function (latitude, longitude, domElement) {
+		var center = {lat: latitude, lng: longitude};
+		var map = new google.maps.Map(domElement, {
+			zoom: 10,
+			center: center,
+			disableDefaultUI: true
+		});
+		var marker = new google.maps.Marker({
+			position: center,
+			map: map
+		});
 	}
 }]);

@@ -1,4 +1,4 @@
-homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$sce", "openWeather", function($scope, $http, $timeout, $sce, openWeather) {
+homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "openWeather", function($scope, $http, $timeout, openWeather) {
 	$scope.city = openWeather.city;
 	$scope.$watch("city", function() {
 		openWeather.city = $scope.city;
@@ -40,8 +40,7 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$s
 	$scope.submit = function() {
 		openWeather.submit().then(function success(response) {
 			$scope.weatherResult = response.data;
-			openWeather.initializeMap(response.data.city.coord.lon, response.data.city.coord.lat);
-			$scope.weatherResult.mapDomElement = $sce.trustAsHtml(openWeather.mapDomElement.outerHTML);
+			openWeather.loadMap(response.data.city.coord.lat, response.data.city.coord.lon, document.getElementById("map"));
 			setTimeout(function() { Ladda.stopAll(); }, 500);
 		}, function failure(response) {
 			if (response.status === -1) {
