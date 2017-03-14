@@ -3,8 +3,6 @@ homepageApp.controller("rssFeedController", ["$scope", "$sce", "$timeout", "$coo
 		var todaysDate = new Date();
 		$cookies.put("rssUrl", "https://techcrunch.com/feed/", {"expires": new Date(todaysDate.getFullYear() + 1, todaysDate.getMonth(), todaysDate.getDate())});
 	$scope.rssFeedURL = $cookies.get("rssUrl");
-	console.log($cookies.get("rssUrl"));
-	
 	
 	var rssRequestDelay = 1000;
 	var rssRequestTimeout;
@@ -15,7 +13,6 @@ homepageApp.controller("rssFeedController", ["$scope", "$sce", "$timeout", "$coo
 		
 		rssRequestTimeout = $timeout(function() {
 				rssFeed.getFeeds($scope.rssFeedURL).then(function (responseData) {
-					console.log(responseData);
 					if (responseData.data && responseData.data.status === "ok") {
 						$scope.rssFeeds = responseData.data;
 						angular.forEach($scope.rssFeeds.items, function (rssFeed) {
