@@ -1,15 +1,18 @@
 homepageApp.controller("rssFeedController", ["$scope", "$sce", "$timeout", "$cookies", "rssFeed", function ($scope, $sce, $timeout, $cookies, rssFeed) {
 	if(!$cookies.get("rssUrl")) {
-		var todaysDate = new Date();
-		$cookies.put("rssUrl", "https://techcrunch.com/feed/", {"expires": new Date(todaysDate.getFullYear() + 1, todaysDate.getMonth(), todaysDate.getDate())});
+		var expireDate = new Date();
+		expireDate.setDate(expireDate.getDate() + 365);
+		$cookies.put('rssUrl', 'https://techcrunch.com/feed/', {'expires': expireDate});
 	}
 	$scope.rssFeedURL = $cookies.get("rssUrl");
-	
+
 	var rssRequestDelay = 1000;
 	var rssRequestTimeout;
 	
 	$scope.$watch("rssFeedURL", function() {
-		$cookies.put("rssUrl", $scope.rssFeedURL);
+		var expireDate = new Date();
+		expireDate.setDate(expireDate.getDate() + 365);
+		$cookies.put("rssUrl", $scope.rssFeedURL, {'expires': expireDate});
 		$timeout.cancel(rssRequestTimeout);
 		
 		rssRequestTimeout = $timeout(function() {
