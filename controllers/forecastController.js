@@ -1,11 +1,21 @@
-homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "openWeather", function($scope, $http, $timeout, openWeather) {
-	$scope.city = openWeather.city;
+homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$cookies", "$sce", "openWeather", function($scope, $http, $timeout, $cookies, $sce, openWeather) {
+	if(!$cookies.get("weatherCity")) {
+		var expireDate = new Date();
+		expireDate.setDate(expireDate.getDate() + 365);
+		$cookies.put("weatherCity", "Calgary", {'expires': expireDate});
+	}
+	$scope.city = $cookies.get("weatherCity");
+	openWeather.city = $scope.city;
+	
 	$scope.$watch("city", function() {
 		openWeather.city = $scope.city;
+		var expireDate = new Date();
+		expireDate.setDate(expireDate.getDate() + 365);
+		$cookies.put("weatherCity", $scope.city, {'expires': expireDate});
 		Ladda.stopAll();
 	});
 	
-	$scope.tempUnit = openWeather.tempUnit
+	$scope.tempUnit = openWeather.tempUnit;
 	$scope.$watch("tempUnit", function() {
 		openWeather.tempUnit = $scope.tempUnit;
 	});
@@ -28,7 +38,7 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "op
 			$scope.tempUnit = checkboxElement.checked ? "Celcius" : "Farenheit";
 		$timeout(tempUnitChange, 100);
 	}, 100);
-			
+	
 	$scope.convertToCelcius = function(degKelvin) {
 		return Math.round(degKelvin - 273.15);
 	};
@@ -40,7 +50,15 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "op
 	$scope.submit = function() {
 		openWeather.submit().then(function success(response) {
 			$scope.weatherResult = response.data;
-			openWeather.loadMap(response.data.city.coord.lat, response.data.city.coord.lon, document.getElementById("map"));
+			openWeather.getMap().then(function(googleMap) {
+				var mapOptions = {
+                    zoom: 14,
+                    center: {lat: response.data.city.coord.lat, lng: response.data.city.coord.lon},
+					disableDefaultUI: true,
+                    panControl: true,
+                };
+				googleMap.setOptions(mapOptions);
+			});
 			setTimeout(function() { Ladda.stopAll(); }, 500);
 		}, function failure(response) {
 			if (response.status === -1) {

@@ -16,7 +16,7 @@ homepageApp.directive("weatherForecast", function() {
 
 homepageApp.directive("rssFeed", function() {
 	return {
-		templateUrl: "/directives/templates/rssFeedCard.html",
+		templateUrl: "/directives/templates/rssFeed.html",
 		restrict: "AECM",
 		replace: true
 	};

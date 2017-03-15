@@ -1,26 +1,32 @@
 <div class="row">
-	<div class="col-12 col-sm-4" ng-controller="forecastController">
-		<div class="search-forecast"></div>
-		<div class="weather-forecast"></div>
+	<div class="col-12 col-sm-5" ng-controller="forecastController">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="weather-forecast"></div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-12" ng-controller="rssFeedController">
+				<div class="rss-feed"></div>
+			</div>
+		</div>
 	</div>
 	
-	<div class="col-12 col-sm-8" ng-controller="rssFeedController">
-		<div class="card">
-			<div class="card-block">
-				<h1>Good Day!</h1>
-				<h4>
-					<small>Here are your news for today.</small>
-				</h4>
-				<div>
-					<div class="input-group">
-						<input ng-model="rssFeedURL" type="text" class="form-control" placeholder="Enter an RSS link..." />
+	<div class="col-12 col-sm-7">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-block">
+						<h1>More features to add soon!</h1>
+						<p>
+							They will be down here, once they have been created!
+						</p>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="rss-feed" ng-repeat="rssFeed in rssFeeds.items">
-			<div ng-include="'/directives/templates/rssFeedCard.html'"></div>
-		</div>
-		 
 	</div>
+</div>
+	
 </div>

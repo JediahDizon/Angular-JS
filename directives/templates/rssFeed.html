@@ -1,0 +1,38 @@
+<div class="card">
+	<div class="card-block">
+		<h1>RSS Reader</h1>
+		<div class="input-group">
+			<input ng-model="rssFeedURL" type="text" class="form-control" placeholder="Enter an RSS link..." />
+		</div>
+
+		<button class="btn btn-primary btn-sm btn-block" data-toggle="collapse" data-target="#rssFeeds">
+			<i class="fa fa-caret-down"></i>
+		</button>
+
+		<div id="rssFeeds" class="collapse">
+<!--			<table class="table table-bordered">
+				<tr ng-repeat="rssFeed in rssFeeds.items">
+					<td>
+						<h3>
+							{{ rssFeed.title }}
+							<br />
+							<small class="text-lighten-5">{{ rssFeed.author }}</small>
+						</h3>
+						<hr />
+						<p ng-bind-html="rssFeed.description"></p>
+					</td>
+				</tr>
+			</table>-->
+
+				<div ng-repeat="rssFeed in rssFeeds.items">
+					<hr />
+					<h3>
+						{{ rssFeed.title }}
+						<br />
+						<small class="text-lighten-5">{{ rssFeed.author }}</small>
+					</h3>
+					<p ng-bind-html="rssFeed.description"></p>
+				</div>
+		</div>
+	</div>
+</div>

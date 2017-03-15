@@ -1,18 +1,14 @@
-<div class="card">
-	<div class="card-block">
-		<form>
-			<div class="input-group">
-				<input ng-model="city" type="text" class="form-control" placeholder="Enter a city..."/>
-				
-				<!-- 
-				We use the "ng-click" directive instead of the "ng-submit" because "ng-submit" is compatible only with
-				<input type="text" />. We need the <button></button> instead considering we have to have a 
-				Font Awesome icon in the button. The former doesn't have that ability, as it can only display text. 
-				-->
-				<button ng-click="submit()" type="submit" class="btn btn-primary btn-md ladda-button" data-spinner-color="#FFF" data-style="slide-down">
-					<i class="fa fa-arrow-right" aria-hidden="true"></i>
-				</button>
-			</div>
-		</form>
+<form>
+	<div class="input-group">
+		<input ng-model="city" type="text" class="form-control" placeholder="Enter a city..."/>
+
+		<!-- 
+		We use the "ng-click" directive instead of the "ng-submit" because "ng-submit" is compatible only with
+		<input type="text" />. We need the <button></button> instead considering we have to have a 
+		Font Awesome icon in the button. The former doesn't have that ability, as it can only display text. 
+		-->
+		<button ng-click="submit()" type="submit" class="btn btn-primary btn-md ladda-button" data-spinner-color="#FFF" data-style="slide-down">
+			<i class="fa fa-arrow-right" aria-hidden="true"></i>
+		</button>
 	</div>
-</div>
+</form>
