@@ -1,10 +1,10 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12 col-sm-4" ng-controller="forecastController">
-			<div class="search-forecast"></div>
 			<div class="weather-forecast"></div>
+			<div class="rss-feed"></div>
 		</div>
-	
+		
 		<div class="col-12 col-sm-8">
 			<div class="row">
 				<div class="col-sm-12">
@@ -16,9 +16,6 @@
 							</p>
 						</div>
 					</div>
-				</div>
-				<div class="rss-feed" ng-repeat="rssFeed in rssFeeds.items">
-					<div ng-include="'/directives/templates/rssFeedCard.html'"></div>
 				</div>
 			</div>
 		</div>
