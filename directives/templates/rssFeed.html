@@ -6,33 +6,25 @@
 		</div>
 		
 		<br />
-		
-		<div class="row">
-			<div class="col-4">
-				<button ng-click="rssFeedURL='https://EquestriaDaily.com/feeds/posts/default'" class="btn btn-sm btn-default">Equestria Daily</button>
-			</div>
-			<div class="col-4">
-				<button ng-click="rssFeedURL='https://gitlab.com/JediahDizon.atom?private_token=o74LsLFnAiUsheRLDYui'" class="btn btn-sm btn-default">GitLab Feed</button>
-			</div>
-			<div class="col-4">
-				<button ng-click="rssFeedURL='http://rss.cnn.com/rss/cnn_tech.rss'" class="btn btn-sm btn-default">CNN Tech News</button>
-			</div>
-		</div>
 
-		<button class="btn btn-primary btn-sm btn-block" data-toggle="collapse in" data-target="#rssFeeds">
+		<button ng-click="rssFeedURL='http://rss.cnn.com/rss/cnn_tech.rss'" class="btn btn-block btn-primary">CNN Tech News</button>
+		<button ng-click="rssFeedURL='https://gitlab.com/JediahDizon.atom?private_token=o74LsLFnAiUsheRLDYui'" class="btn btn-block btn-primary">GitLab Feed</button>
+		<button ng-click="rssFeedURL='https://EquestriaDaily.com/feeds/posts/default'" class="btn btn-block btn-primary">Equestria Daily</button>
+		
+		<button class="btn btn-primary btn-sm btn-block" data-toggle="collapse" data-target="#rssFeeds">
 			<i class="fa fa-caret-down"></i>
 		</button>
 
 		<div id="rssFeeds" class="collapse in">
-				<div ng-repeat="rssFeed in rssFeeds.items">
-					<hr />
-					<h3>
-						{{ rssFeed.title }}
-						<br />
-						<small class="text-lighten-5">{{ rssFeed.author }}</small>
-					</h3>
-					<p ng-bind-html="rssFeed.description"></p>
-				</div>
+			<div ng-repeat="rssFeed in rssFeeds.items">
+				<hr />
+				<h3>
+					{{ rssFeed.title }}
+					<br />
+					<small class="text-lighten-5">{{ rssFeed.author }}</small>
+				</h3>
+				<p ng-bind-html="rssFeed.description"></p>
+			</div>
 		</div>
 	</div>
 </div>
