@@ -1,8 +1,21 @@
+
 <div class="container">
 	<div class="row">
 		<div class="col-12 col-sm-4" ng-controller="forecastController">
 			<div class="search-forecast"></div>
 			<div class="weather-forecast"></div>
+<div class="row">
+	<div class="col-12 col-sm-4" ng-controller="forecastController">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="weather-forecast"></div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-12" ng-controller="rssFeedController">
+				<div class="rss-feed"></div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -20,6 +33,16 @@
 						<div class="input-group">
 							<input ng-model="rssFeedURL" type="text" class="form-control" placeholder="Enter an RSS link..." />
 						</div>
+	
+	<div class="col-12 col-sm-8">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-block">
+						<h1>More features to add soon!</h1>
+						<p>
+							They will be down here, once they have been created!
+						</p>
 					</div>
 				</div>
 			</div>
@@ -28,4 +51,6 @@
 			</div>
 		</div>
 	</div>
+</div>
+	
 </div>

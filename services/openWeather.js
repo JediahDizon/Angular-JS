@@ -1,4 +1,4 @@
-homepageApp.service("openWeather", ["$http", function($http) {
+homepageApp.service("openWeather", ["$http", "NgMap", function($http, NgMap) {
 	this.appId = "9e025947223cbcb3d8282f363a73648a";
 	this.city = "Calgary, AB";
 	this.count = 1;
@@ -15,16 +15,7 @@ homepageApp.service("openWeather", ["$http", function($http) {
 		}});
 	}
 	
-	this.loadMap = function (latitude, longitude, domElement) {
-		var center = {lat: latitude, lng: longitude};
-		var map = new google.maps.Map(domElement, {
-			zoom: 10,
-			center: center,
-			disableDefaultUI: true
-		});
-		var marker = new google.maps.Marker({
-			position: center,
-			map: map
-		});
+	this.getMap = function (latitude, longitude) {
+		return NgMap.getMap();
 	}
 }]);
