@@ -6,7 +6,7 @@
 setTimeout(function MDB() {
 	Waves.attach(".btn", ["waves-light"]);
 	setTimeout(MDB, 500);
-}, 500);
+}, 500); 
 
 setTimeout(function Ladda() {
 	startLadda();
