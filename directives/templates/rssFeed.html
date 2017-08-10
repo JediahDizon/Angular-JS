@@ -17,9 +17,9 @@
 		</button>
 
 		<div id="rssFeeds" class="collapse">
-			<hr />
 			<div ng-if="rssFeeds.items.length > 0">
 				<div ng-repeat="rssFeed in rssFeeds.items">
+				<hr />
 					<h3>
 						{{ rssFeed.title }}
 						<br />
@@ -30,6 +30,7 @@
 			</div>
 			
 			<div ng-if="rssFeeds.items.length == 0" class="text-center">
+				<hr />
 				<i class="fa fa-circle-o-notch fa-spin" style="font-size: 3rem; color: #4285F4;"></i>
 			</div>
 		</div>
