@@ -14,7 +14,7 @@ homepageApp.controller("rssFeedController", ["$scope", "$sce", "$timeout", "$coo
 	$scope.addUrl = function(toAdd) {
 		if(toAdd.title.length > 0 && toAdd.url.length > 0) {
 			var placeHolder = angular.copy(toAdd, placeHolder);
-			$scope.rssURLs.push(placeHolder[0]);	
+			$scope.rssURLs.push(placeHolder);	
 			if (typeof(Storage) !== "undefined") {
 			    localStorage.setItem(toAdd.title, toAdd.url);
 			}
