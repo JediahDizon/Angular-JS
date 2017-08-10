@@ -10,8 +10,9 @@
 		<div class="btn-block btn-group-vertical">
 			<button ng-repeat="rssURL in rssURLs" ng-click="changeUrl(rssURL.url)" class="btn btn-block btn-primary">{{ rssURL.title }}</button>
 		</div>
-	
-		<div class="input-group">
+		
+		<!-- CURRENTLY HIDDEN AS IMPROVEMENTS ARE BEING WORKED ON -->
+		<div class="input-group" style="display: none;">
 			<input ng-model="rssURL.title" type="text" class="form-control" placeholder="Title..." />
 			<input ng-model="rssURL.url" type="text" class="form-control" placeholder="Link..." />
 	
