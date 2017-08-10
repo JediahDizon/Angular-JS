@@ -9,7 +9,17 @@
 		
 		<div class="btn-block btn-group-vertical">
 			<button ng-repeat="rssURL in rssURLs" ng-click="changeUrl(rssURL.url)" class="btn btn-block btn-primary">{{ rssURL.title }}</button>
+			<input type="text" class="" placeholder="Title..." />
 		</div>
+		
+		<div class="input-group">
+		<input ng-model="rssURL.title" type="text" class="form-control" placeholder="Title..." />
+		<input ng-model="rssURL.url" type="text" class="form-control" placeholder="Link..." />
+
+		<button ng-click="addURL(rssURL)" type="submit" class="btn btn-primary btn-md">
+			<i class="fa fa-plus"></i>
+		</button>
+	</div>
 		
 		<button class="btn btn-primary btn-sm btn-block" data-toggle="collapse" data-target="#rssFeeds">
 			<i class="fa fa-caret-down"></i>
