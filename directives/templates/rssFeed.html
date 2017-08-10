@@ -18,16 +18,18 @@
 
 		<div id="rssFeeds" class="collapse">
 			<hr />
-			<div ng-if="rssFeeds.items > 0" ng-repeat="rssFeed in rssFeeds.items">
-				<h3>
-					{{ rssFeed.title }}
-					<br />
-					<small class="text-lighten-5">{{ rssFeed.author }}</small>
-				</h3>
-				<p ng-bind-html="rssFeed.description"></p>
+			<div ng-if="rssFeeds.items > 0">
+				<div ng-repeat="rssFeed in rssFeeds.items">
+					<h3>
+						{{ rssFeed.title }}
+						<br />
+						<small class="text-lighten-5">{{ rssFeed.author }}</small>
+					</h3>
+					<p ng-bind-html="rssFeed.description"></p>
+				</div>
 			</div>
 			
-			<div ng-if="rssFeed.length == 0">
+			<div ng-if="rssFeeds.items == 0">
 				<i class="fa fa-circle-o-notch" style="font-size:36px;"></i>
 			</div>
 		</div>
