@@ -35,8 +35,10 @@ homepageApp.controller("rssFeedController", ["$scope", "$sce", "$timeout", "$coo
 		}, rssRequestDelay);
 	});
 	
-	$scope.changeUrl = function(rssFeedURL) {
-		$scope.rssFeeds.items = [];
-		$scope.rssFeedURL = rssFeedURL;
+	$scope.changeUrl = function(replacementUrl) {
+		if($scope.rssFeedURL === replacementUrl) {
+			$scope.rssFeeds.items = [];
+			$scope.rssFeedURL = rssFeedURL;
+		}
 	};
 }]);
