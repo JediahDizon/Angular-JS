@@ -26,7 +26,11 @@ homepageApp.controller("rssFeedController", ["$scope", "$sce", "$timeout", "$coo
 						$scope.rssFeeds = {
 								items: [{
 									title: "No data",
-									description: $sce.trustAsHtml("<p>Please check the RSS URL.</p><div class='well well-lg'>" + responseData.data.message + "</div>")
+									description: $sce.trustAsHtml("<p>Please check the RSS URL.</p><hr />" +
+											"<p>Message:</p>" +
+											"<div class='card'><div class='card-block'><p>" + 
+											responseData.data.message + 
+											"</p></div></div>")
 								}]
 							};
 					}}, function(responseError) {
