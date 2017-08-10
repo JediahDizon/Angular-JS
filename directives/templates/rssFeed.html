@@ -9,6 +9,9 @@
 		
 		<div class="btn-block btn-group-vertical">
 			<button ng-repeat="rssURL in rssURLs" ng-click="changeUrl(rssURL.url)" class="btn btn-block btn-primary">{{ rssURL.title }}</button>
+			<button class="btn btn-primary btn-sm btn-block" data-toggle="collapse" data-target="#rssFeeds">
+				<i class="fa fa-caret-down"></i>
+			</button>
 		</div>
 		
 		<!-- CURRENTLY HIDDEN AS IMPROVEMENTS ARE BEING WORKED ON -->
@@ -21,9 +24,6 @@
 			</button>
 		</div>
 		
-		<button class="btn btn-primary btn-sm btn-block" data-toggle="collapse" data-target="#rssFeeds">
-			<i class="fa fa-caret-down"></i>
-		</button>
 
 		<div id="rssFeeds" class="collapse">
 			<div ng-if="rssFeeds.items.length > 0">
