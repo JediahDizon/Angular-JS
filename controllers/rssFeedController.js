@@ -34,4 +34,9 @@ homepageApp.controller("rssFeedController", ["$scope", "$sce", "$timeout", "$coo
 			});
 		}, rssRequestDelay);
 	});
+	
+	$scope.changeUrl = function(rssFeedURL) {
+		$scope.rssFeeds.items = [];
+		$scope.rssFeedURL = rssFeedURL;
+	};
 }]);

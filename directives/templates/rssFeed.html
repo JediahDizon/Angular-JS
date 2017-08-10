@@ -8,8 +8,8 @@
 		<br />
 		
 		<div class="btn-block btn-group-vertical">
-			<button ng-click="rssFeedURL='http://rss.cnn.com/rss/cnn_tech.rss'" class="btn btn-block btn-primary">CNN Tech News</button>
-			<button ng-click="rssFeedURL='https://EquestriaDaily.com/feeds/posts/default'" class="btn btn-block btn-primary">Equestria Daily</button>
+			<button ng-click="changeUrl('http://rss.cnn.com/rss/cnn_tech.rss')" class="btn btn-block btn-primary">CNN Tech News</button>
+			<button ng-click="changeUrl('https://EquestriaDaily.com/feeds/posts/default')" class="btn btn-block btn-primary">Equestria Daily</button>
 		</div>
 		
 		<button class="btn btn-primary btn-sm btn-block" data-toggle="collapse" data-target="#rssFeeds">
@@ -17,14 +17,18 @@
 		</button>
 
 		<div id="rssFeeds" class="collapse">
-			<div ng-repeat="rssFeed in rssFeeds.items">
-				<hr />
+			<hr />
+			<div ng-if="rssFeeds.items > 0" ng-repeat="rssFeed in rssFeeds.items">
 				<h3>
 					{{ rssFeed.title }}
 					<br />
 					<small class="text-lighten-5">{{ rssFeed.author }}</small>
 				</h3>
 				<p ng-bind-html="rssFeed.description"></p>
+			</div>
+			
+			<div ng-if="rssFeed.length == 0">
+				<i class="fa fa-circle-o-notch" style="font-size:36px;"></i>
 			</div>
 		</div>
 	</div>
