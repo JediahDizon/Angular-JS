@@ -36,7 +36,7 @@ homepageApp.controller("rssFeedController", ["$scope", "$sce", "$timeout", "$coo
 	});
 	
 	$scope.changeUrl = function(replacementUrl) {
-		if($scope.rssFeedURL === replacementUrl) {
+		if($scope.rssFeedURL !== replacementUrl) {
 			$scope.rssFeeds.items = [];
 			$scope.rssFeedURL = rssFeedURL;
 		}
