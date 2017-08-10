@@ -1,4 +1,10 @@
 homepageApp.controller("rssFeedController", ["$scope", "$sce", "$timeout", "$cookies", "rssFeed", function ($scope, $sce, $timeout, $cookies, rssFeed) {
+	$scope.rssURLs = [
+		{title: "CTV News", url: "http://ctvnews.ca/rss/TopStories"},
+		{title: "CNN Tech News", url: "http://rss.cnn.com/rss/cnn_tech.rss"},
+		{title: "Equestria Daily", url: "https://EquestriaDaily.com/feeds/posts/default"}
+	];
+	
 	if(!$cookies.get("rssUrl")) {
 		var expireDate = new Date();
 		expireDate.setDate(expireDate.getDate() + 365);

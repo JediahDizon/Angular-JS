@@ -8,8 +8,7 @@
 		<br />
 		
 		<div class="btn-block btn-group-vertical">
-			<button ng-click="changeUrl('http://rss.cnn.com/rss/cnn_tech.rss')" class="btn btn-block btn-primary">CNN Tech News</button>
-			<button ng-click="changeUrl('https://EquestriaDaily.com/feeds/posts/default')" class="btn btn-block btn-primary">Equestria Daily</button>
+			<button ng-repeat="rssURL in rssURLs" ng-click="changeUrl(rssURL.url)" class="btn btn-block btn-primary">{{ rssURL.title }}</button>
 		</div>
 		
 		<button class="btn btn-primary btn-sm btn-block" data-toggle="collapse" data-target="#rssFeeds">
