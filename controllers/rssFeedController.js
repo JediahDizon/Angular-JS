@@ -4,11 +4,22 @@ homepageApp.controller("rssFeedController", ["$scope", "$sce", "$timeout", "$coo
 		{title: "CNN Tech News", url: "http://rss.cnn.com/rss/cnn_tech.rss"},
 		{title: "Equestria Daily", url: "https://EquestriaDaily.com/feeds/posts/default"}
 	];
+	
+	if (typeof(Storage) !== "undefined") {
+		for(var index in localStorage) {
+			$scope.rssURLs.push(localStorage[index]);
+		}
+	}
+	
 	$scope.addUrl = function(toAdd) {
 		if(toAdd.title.length > 0 && toAdd.url.length > 0) {
 			$scope.rssURLs.push(toAdd);	
+			if (typeof(Storage) !== "undefined") {
+			    localStorage.setItem(toAdd.title, toAdd.url);
+			}
 		}
 	}
+	
 	
 	if(!$cookies.get("rssUrl")) {
 		var expireDate = new Date();
