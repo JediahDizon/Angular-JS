@@ -5,18 +5,18 @@ homepageApp.service("IPAPI", ["$http", function($http) {
 	this.longitude = 0;
 	this.latitude = 0;
 	
-	this.getData = function() {
+	this.submit = function() {
 		return $http({
 			method: "GET",
 			url: "https://ipapi.co/json/"
 		});
 	};
 	
-	this.getData().then(function success(response) {
-		this.city = response.city;
-		this.region = response.region;
-		this.country = response.country;
-		this.longitude = response.longitude;
-		this.latitude = response.latitude;
-	});;
+	this.submit().then(function success(response) {
+		this.city = response.data.city;
+		this.region = response.data.region;
+		this.country = response.data.country;
+		this.longitude = response.data.longitude;
+		this.latitude = response.data.latitude;
+	});
 }]);
