@@ -10,7 +10,8 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$c
 	IPAPI.submit().then(function success(response) {
 		IPAPI.city = response.data.city;
 		IPAPI.region = response.data.region;
-		IPAPI.country = response.data.country_name;
+		IPAPI.country = response.data.country;
+		IPAPI.country_name = response.data.country_name;
 		IPAPI.longitude = response.data.longitude;
 		IPAPI.latitude = response.data.latitude;
 		

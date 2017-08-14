@@ -1,6 +1,7 @@
 homepageApp.service("IPAPI", ["$http", function($http) {
 	this.city = null;
 	this.region = null;
+	this.country_name = null;
 	this.country = null;
 	this.longitude = 0;
 	this.latitude = 0;
