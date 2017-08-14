@@ -22,8 +22,10 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$c
 		$scope.city = $cookies.get("weatherCity");
 		openWeather.city = $scope.city;
 		$scope.submit();
+		alert(JSON.stringify(response));
 	}, function failure(response) {
 		IPAPI.city = "Calgary, AB";
+		alert(JSON.stringify(response));
 	});
 	
 	$scope.$watch("city", function() {
