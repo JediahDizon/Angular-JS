@@ -7,7 +7,7 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$c
 		IPAPI.country = response.data.country;
 		IPAPI.longitude = response.data.longitude;
 		IPAPI.latitude = response.data.latitude;
-	}).then(function failure(response) {
+	},function failure(response) {
 		IPAPI.city = "Calgary, AB";
 	});
 	
