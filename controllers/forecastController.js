@@ -17,7 +17,7 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$c
 		if(!$cookies.get("weatherCity")) {
 			var expireDate = new Date();
 			expireDate.setDate(expireDate.getDate() + 365);
-			$cookies.put("weatherCity", IPAPI.city || IPAPI.country_name, {'expires': expireDate});
+			$cookies.put("weatherCity", IPAPI.city || IPAPI.country, {'expires': expireDate});
 		}
 		$scope.city = $cookies.get("weatherCity");
 		openWeather.city = $scope.city;
