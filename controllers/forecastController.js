@@ -1,8 +1,8 @@
-homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$cookies", "$sce", "openWeather", function($scope, $http, $timeout, $cookies, $sce, openWeather) {
+homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$cookies", "$sce", "openWeather", "IPAPI", function($scope, $http, $timeout, $cookies, $sce, openWeather, IPAPI) {
 	if(!$cookies.get("weatherCity")) {
 		var expireDate = new Date();
 		expireDate.setDate(expireDate.getDate() + 365);
-		$cookies.put("weatherCity", "Calgary", {'expires': expireDate});
+		$cookies.put("weatherCity", IPAPI.city, {'expires': expireDate});
 	}
 	$scope.city = $cookies.get("weatherCity");
 	openWeather.city = $scope.city;
