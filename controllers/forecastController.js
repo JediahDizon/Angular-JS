@@ -1,4 +1,16 @@
 homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$cookies", "$sce", "openWeather", "IPAPI", function($scope, $http, $timeout, $cookies, $sce, openWeather, IPAPI) {
+
+	
+	IPAPI.submit().then(function success(response) {
+		IPAPI.city = response.data.city;
+		IPAPI.region = response.data.region;
+		IPAPI.country = response.data.country;
+		IPAPI.longitude = response.data.longitude;
+		IPAPI.latitude = response.data.latitude;
+	}).then(function failure(response) {
+		IPAPI.city = "Calgary, AB";
+	});
+	
 	if(!$cookies.get("weatherCity")) {
 		var expireDate = new Date();
 		expireDate.setDate(expireDate.getDate() + 365);
