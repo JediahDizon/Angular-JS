@@ -15,9 +15,10 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$c
 		IPAPI.latitude = response.data.latitude;
 
 		$scope.submit();
-		alert(response);
-	},function failure(response) {
+		alert(JSON.toString(response));
+	}, function failure(response) {
 		IPAPI.city = "Calgary, AB";
+		alert(JSON.toString(response));
 	});
 
 	if(!$cookies.get("weatherCity")) {
