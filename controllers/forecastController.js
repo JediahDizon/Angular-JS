@@ -1,16 +1,24 @@
 homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$cookies", "$sce", "openWeather", "IPAPI", function($scope, $http, $timeout, $cookies, $sce, openWeather, IPAPI) {
-
 	
+	/*
+	 * This function makes the first http request to determine
+	 * the city of the user. This data will then be used to
+	 * make another http request to determine the weather of 
+	 * the user's location which will be displayed in the forecast
+	 * widget.
+	 */
 	IPAPI.submit().then(function success(response) {
 		IPAPI.city = response.data.city;
 		IPAPI.region = response.data.region;
 		IPAPI.country = response.data.country;
 		IPAPI.longitude = response.data.longitude;
 		IPAPI.latitude = response.data.latitude;
+
+		$scope.submit();
 	},function failure(response) {
 		IPAPI.city = "Calgary, AB";
 	});
-	
+
 	if(!$cookies.get("weatherCity")) {
 		var expireDate = new Date();
 		expireDate.setDate(expireDate.getDate() + 365);
@@ -81,5 +89,4 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$c
 			setTimeout(function() { Ladda.stopAll(); }, 500);
 		});
 	};
-	$scope.submit();
 }]);
