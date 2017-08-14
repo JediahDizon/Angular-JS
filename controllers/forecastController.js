@@ -17,6 +17,7 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$c
 		$scope.submit();
 	},function failure(response) {
 		IPAPI.city = "Calgary, AB";
+		alert(response);
 	});
 
 	if(!$cookies.get("weatherCity")) {
