@@ -43,6 +43,9 @@ homepageApp.controller("rssFeedController", ["$scope", "$sce", "$timeout", "$coo
 					if (responseData.data && responseData.data.status === "ok") {
 						$scope.rssFeeds = responseData.data;
 						angular.forEach($scope.rssFeeds.items, function (rssFeed) {
+							var textArea = document.createElement('textarea');
+							textArea.innerHTML = rssFeed.title;
+							rssFeed.title = textArea.value;
 							rssFeed.description = $sce.trustAsHtml(rssFeed.description);
 						});
 					} else if (responseData.data.status === "error") {
