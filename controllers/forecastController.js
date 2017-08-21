@@ -69,14 +69,17 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$c
 	$scope.weatherResult = {};
 	$scope.submit = function() {
 		openWeather.submit().then(function success(response) {
+			var expireDate = new Date();
+			expireDate.setDate(expireDate.getDate() + 365);
+			$cookies.put("weatherCity", $scope.city, {'expires': expireDate});
 			$scope.weatherResult = response.data;
 			openWeather.getMap().then(function(googleMap) {
 				var mapOptions = {
-                    zoom: 14,
-                    center: {lat: response.data.city.coord.lat, lng: response.data.city.coord.lon},
+					zoom: 14,
+					center: {lat: response.data.city.coord.lat, lng: response.data.city.coord.lon},
 					disableDefaultUI: true,
-                    panControl: true,
-                };
+					panControl: true,
+				};
 				googleMap.setOptions(mapOptions);
 			});
 			setTimeout(function() { Ladda.stopAll(); }, 500);
