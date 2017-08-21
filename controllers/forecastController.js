@@ -23,17 +23,18 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$c
 		
 		openWeather.city = $scope.city = $cookies.get("weatherCity");
 		$scope.submit();
+		
+		$scope.$watch("city", function() {
+			openWeather.city = $scope.city;
+			var expireDate = new Date();
+			expireDate.setDate(expireDate.getDate() + 365);
+			$cookies.put("weatherCity", $scope.city, {'expires': expireDate});
+			Ladda.stopAll();
+		});
 	}, function failure(response) {
 		IPAPI.city = "Calgary, AB";
 	});
 	
-	$scope.$watch("city", function() {
-		openWeather.city = $scope.city;
-		var expireDate = new Date();
-		expireDate.setDate(expireDate.getDate() + 365);
-		$cookies.put("weatherCity", $scope.city, {'expires': expireDate});
-		Ladda.stopAll();
-	});
 	
 	$scope.tempUnit = openWeather.tempUnit;
 	$scope.$watch("tempUnit", function() {
