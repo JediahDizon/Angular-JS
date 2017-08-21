@@ -29,7 +29,6 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$c
 			var expireDate = new Date();
 			expireDate.setDate(expireDate.getDate() + 365);
 			$cookies.put("weatherCity", $scope.city, {'expires': expireDate});
-			Ladda.stopAll();
 		});
 	}, function failure(response) {
 		IPAPI.city = "Calgary, AB";
