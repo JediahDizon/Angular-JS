@@ -16,6 +16,7 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$c
 		IPAPI.latitude = response.data.latitude;
 		
 		if(!$cookies.get("weatherCity")) {
+			console.log($cookies.get("weatherCity"));
 			var expireDate = new Date();
 			expireDate.setDate(expireDate.getDate() + 365);
 			$cookies.put("weatherCity", IPAPI.city || IPAPI.country_name + ", " + IPAPI.country, {'expires': expireDate});
@@ -68,10 +69,10 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$c
 	
 	$scope.weatherResult = {};
 	$scope.submit = function() {
+		var expireDate = new Date();
+		expireDate.setDate(expireDate.getDate() + 365);
+		$cookies.put("weatherCity", $scope.city, {'expires': expireDate});
 		openWeather.submit().then(function success(response) {
-			var expireDate = new Date();
-			expireDate.setDate(expireDate.getDate() + 365);
-			$cookies.put("weatherCity", $scope.city, {'expires': expireDate});
 			$scope.weatherResult = response.data;
 			openWeather.getMap().then(function(googleMap) {
 				var mapOptions = {
