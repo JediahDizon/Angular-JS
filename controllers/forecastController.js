@@ -69,9 +69,6 @@ homepageApp.controller("forecastController", ["$scope", "$http", "$timeout", "$c
 	
 	$scope.weatherResult = {};
 	$scope.submit = function() {
-		var expireDate = new Date();
-		expireDate.setDate(expireDate.getDate() + 365);
-		$cookies.put("weatherCity", $scope.city, {'expires': expireDate});
 		openWeather.submit().then(function success(response) {
 			$scope.weatherResult = response.data;
 			openWeather.getMap().then(function(googleMap) {
